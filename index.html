@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HICOPK&CO — Speakers & Audio Repair</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --red: #e10600;
+  --red2: #ff3b30;
+  --black: #050505;
+  --dark: #101010;
+  --gray: #1b1b1b;
+  --light: #f5f5f5;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--black);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(5,5,5,.82);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.nav {
+  max-width: 1300px;
+  margin: auto;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.logo span {
+  color: var(--red);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: .3s;
+}
+
+.nav-links a:hover {
+  color: var(--red);
+}
+
+.cart-btn {
+  border: 1px solid #333;
+  background: #111;
+  color: white;
+  padding: 11px 17px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.cart-btn:hover {
+  border-color: var(--red);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 75% 45%, rgba(225,6,0,.25), transparent 30%),
+    linear-gradient(120deg,#030303,#111);
+}
+
+.hero-content {
+  max-width: 1300px;
+  width: 100%;
+  margin: auto;
+  padding: 120px 25px 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-block;
+  color: #ff514b;
+  border: 1px solid rgba(225,6,0,.5);
+  background: rgba(225,6,0,.08);
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.hero h1 {
+  font-size: clamp(55px,8vw,105px);
+  line-height: .9;
+  max-width: 850px;
+  margin: 25px 0;
+  letter-spacing: -5px;
+}
+
+.hero h1 span {
+  color: var(--red);
+}
+
+.hero p {
+  color: #aaa;
+  max-width: 600px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: .3s;
+  display: inline-block;
+}
+
+.btn-red {
+  background: var(--red);
+  color: white;
+}
+
+.btn-red:hover {
+  background: var(--red2);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(225,6,0,.3);
+}
+
+.btn-dark {
+  border: 1px solid #444;
+  color: white;
+  background: #111;
+}
+
+.btn-dark:hover {
+  border-color: var(--red);
+}
+
+/* SPEAKER GRAPHIC */
+
+.speaker {
+  position: absolute;
+  right: 7%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 390px;
+  height: 520px;
+  border-radius: 35px;
+  background: linear-gradient(145deg,#222,#050505);
+  box-shadow:
+    0 0 100px rgba(225,6,0,.18),
+    inset 0 0 30px #000;
+  border: 1px solid #333;
+}
+
+.speaker::before,
+.speaker::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle,#050505 0 15%,#242424 16% 22%,#080808 23% 45%,#1d1d1d 46% 50%,#050505 51%);
+  border: 3px solid #111;
+}
+
+.speaker::before {
+  width: 235px;
+  height: 235px;
+  top: 50px;
+}
+
+.speaker::after {
+  width: 170px;
+  height: 170px;
+  bottom: 45px;
+}
+
+.speaker-light {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--red);
+  border-radius: 50%;
+  left: 25px;
+  top: 25px;
+  box-shadow: 0 0 20px red;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 100px 25px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.section-title h2 {
+  font-size: 48px;
+}
+
+.section-title span {
+  color: var(--red);
+}
+
+.section-title p {
+  color: #888;
+  margin-top: 12px;
+}
+
+/* PRODUCTS */
+
+.products {
+  background: #080808;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.product {
+  background: #111;
+  border: 1px solid #252525;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: .35s;
+}
+
+.product:hover {
+  transform: translateY(-8px);
+  border-color: rgba(225,6,0,.6);
+}
+
+.product-img {
+  height: 230px;
+  background:
+    radial-gradient(circle at center,rgba(225,6,0,.2),transparent 45%),
+    #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 90px;
+}
+
+.product-info {
+  padding: 25px;
+}
+
+.product-info h3 {
+  font-size: 22px;
+}
+
+.product-info p {
+  color: #888;
+  margin: 10px 0 20px;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+.add {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--red);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* SERVICES */
+
+.services {
+  background: #050505;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+.service {
+  background: #111;
+  padding: 35px;
+  border-radius: 18px;
+  border: 1px solid #222;
+  transition: .3s;
+}
+
+.service:hover {
+  border-color: var(--red);
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.service h3 {
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.service p {
+  color: #888;
+  line-height: 1.6;
+}
+
+/* ABOUT */
+
+.about {
+  background:
+    linear-gradient(90deg,#090909,#130505);
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.about h2 span {
+  color: var(--red);
+}
+
+.about p {
+  color: #999;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 15px;
+}
+
+.stat {
+  padding: 30px;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 15px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 38px;
+  color: var(--red);
+}
+
+.stat span {
+  color: #888;
+}
+
+/* REPAIR FORM */
+
+.repair {
+  background: #090909;
+}
+
+.form {
+  max-width: 750px;
+  margin: auto;
+  background: #111;
+  border: 1px solid #252525;
+  padding: 35px;
+  border-radius: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  background: #080808;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--red);
+}
+
+textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.submit {
+  width: 100%;
+  border: none;
+  background: var(--red);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+  background: #050505;
+}
+
+.contact-box {
+  max-width: 850px;
+  margin: auto;
+  padding: 50px;
+  border: 1px solid #252525;
+  border-radius: 20px;
+  background: linear-gradient(145deg,#111,#080808);
+}
+
+.contact-box h2 {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.contact-box p {
+  color: #888;
+  margin-bottom: 25px;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 35px 25px;
+  border-top: 1px solid #222;
+  color: #666;
+  text-align: center;
+  background: #030303;
+}
+
+footer strong {
+  color: white;
+}
+
+/* CART */
+
+.cart {
+  position: fixed;
+  right: -420px;
+  top: 0;
+  width: 400px;
+  max-width: 100%;
+  height: 100vh;
+  background: #101010;
+  z-index: 2000;
+  border-left: 1px solid #333;
+  padding: 25px;
+  transition: .4s;
+  overflow-y: auto;
+}
+
+.cart.open {
+  right: 0;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.close {
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #292929;
+}
+
+.cart-total {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.checkout {
+  margin-top: 20px;
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--red);
+  color: white;
+  font-weight: bold;
+}
+
+/* MOBILE */
+
+.menu {
+  display: none;
+  font-size: 25px;
+  background: none;
+  border: 0;
+  color: white;
+}
+
+@media(max-width:900px) {
+  .speaker {
+    opacity: .2;
+    right: -100px;
+  }
+
+  .product-grid,
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .hero h1 {
+    letter-spacing: -3px;
+  }
+}
+
+@media(max-width:600px) {
+  section {
+    padding: 75px 18px;
+  }
+
+  .hero-content {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about h2,
+  .section-title h2,
+  .contact-box h2 {
+    font-size: 38px;
+  }
+
+  .cart {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">HICOPK<span>&CO</span></div>
+
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#shop">Shop</a></li>
+      <li><a href="#repair">Repairs</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <button class="cart-btn" onclick="openCart()">
+      🛒 Cart <span id="cartCount">0</span>
+    </button>
+
+    <button class="menu">☰</button>
+  </nav>
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+  <div class="hero-content">
+
+    <span class="badge">AUDIO • SALES • REPAIR</span>
+
+    <h1>
+      SOUND<br>
+      <span>REBUILT.</span>
+    </h1>
+
+    <p>
+      HICOPK&CO sells high-quality speakers and brings damaged
+      audio equipment back to life. Built for people who take
+      their sound seriously.
+    </p>
+
+    <div class="buttons">
+      <a href="#shop" class="btn btn-red">Shop Speakers</a>
+      <a href="#repair" class="btn btn-dark">Get A Repair</a>
+    </div>
+
+  </div>
+
+  <div class="speaker">
+    <div class="speaker-light"></div>
+  </div>
+</section>
+
+<!-- SHOP -->
+
+<section class="products" id="shop">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>SHOP <span>AUDIO</span></h2>
+      <p>Powerful speakers built for music, cars and home audio.</p>
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product">
+        <div class="product-img">🔊</div>
+        <div class="product-info">
+          <h3>HICO Bass 12</h3>
+          <p>12-inch high-output subwoofer designed for deep bass.</p>
+          <div class="price">$249.99</div>
+          <button class="add" onclick="addToCart('HICO Bass 12',249.99)">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img">🔈</div>
+        <div class="product-info">
+          <h3>HICO Pro 8</h3>
+          <p>Compact 8-inch speaker with powerful mids and highs.</p>
+          <div class="price">$179.99</div>
+          <button class="add" onclick="addToCart('HICO Pro 8',179.99)">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="product">
+        <div class="product-img">🎵</div>
+        <div class="product-info">
+          <h3>HICO Tower X</h3>
+          <p>Premium full-range tower speaker for home audio.</p>
+          <div class="price">$399.99</div>
+          <button class="add" onclick="addToCart('HICO Tower X',399.99)">
+            Add To Cart
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>OUR <span>SERVICES</span></h2>
+      <p>We don't just sell speakers. We fix them too.</p>
+    </div>
+
+    <div class="service-grid">
+
+      <div class="service">
+        <div class="service-icon">🔧</div>
+        <h3>Speaker Repair</h3>
+        <p>
+          Damaged cone, blown speaker, bad connection or
+          distorted sound? We'll diagnose the problem.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">⚡</div>
+        <h3>Audio Upgrades</h3>
+        <p>
+          Upgrade your system with better speakers,
+          subwoofers, wiring and audio components.
+        </p>
+      </div>
+
+      <div class="service">
+        <div class="service-icon">🚗</div>
+        <h3>Car Audio</h3>
+        <p>
+          Improve your vehicle's sound system with
+          professional speaker and subwoofer solutions.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+  <div class="container">
+
+    <div class="about-content">
+
+      <div>
+        <h2>BUILT AROUND <span>SOUND.</span></h2>
+
+        <p>
+          HICOPK&CO is an audio-focused business dedicated to
+          selling quality speakers and helping customers get
+          their sound systems working again.
+        </p>
+
+        <p>
+          From replacing damaged components to upgrading an
+          entire setup, our goal is simple: better sound,
+          better equipment and better service.
+        </p>
+
+        <a href="#contact" class="btn btn-red">Contact HICOPK&CO</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <strong>100%</strong>
+          <span>Audio Focused</span>
+        </div>
+
+        <div class="stat">
+          <strong>24/7</strong>
+          <span>Online Requests</span>
+        </div>
+
+        <div class="stat">
+          <strong>3+</strong>
+          <span>Core Services</span>
+        </div>
+
+        <div class="stat">
+          <strong>HICO</strong>
+          <span>Built Different</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- REPAIR -->
+
+<section class="repair" id="repair">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>REQUEST A <span>REPAIR</span></h2>
+      <p>Tell us what's wrong with your speaker.</p>
+    </div>
+
+    <form class="form" onsubmit="submitRepair(event)">
+
+      <div class="form-row">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+      </div>
+
+      <div class="form-row">
+        <select id="type" required>
+          <option value="">Speaker Type</option>
+          <option>Car Speaker</option>
+          <option>Subwoofer</option>
+          <option>Home Speaker</option>
+          <option>Bluetooth Speaker</option>
+          <option>Other</option>
+        </select>
+
+        <select id="problem" required>
+          <option value="">What's wrong?</option>
+          <option>No Sound</option>
+          <option>Distorted Sound</option>
+          <option>Rattling</option>
+          <option>Blown Speaker</option>
+          <option>Power Problem</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <textarea
+        id="description"
+        placeholder="Describe the problem..."
+        required></textarea>
+
+      <button class="submit" type="submit">
+        Submit Repair Request
+      </button>
+
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+  <div class="container">
+
+    <div class="contact-box">
+      <h2>LET'S TALK <span>SOUND.</span></h2>
+
+      <p>
+        Need a speaker, repair, upgrade or custom audio setup?
+        Get in touch with HICOPK&CO.
+      </p>
+
+      <a class="btn btn-red" href="mailto:contact@hicopkco.com">
+        Email HICOPK&CO
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 <strong>HICOPK&CO</strong> — Speakers • Audio • Repair
+</footer>
+
+<!-- CART -->
+
+<div class="cart" id="cart">
+
+  <div class="cart-header">
+    <h2>Your Cart</h2>
+    <button class="close" onclick="closeCart()">×</button>
+  </div>
+
+  <div id="cartItems">
+    <p style="color:#777">Your cart is empty.</p>
+  </div>
+
+  <div class="cart-total">
+    Total: $<span id="cartTotal">0.00</span>
+  </div>
+
+  <button class="checkout" onclick="checkout()">
+    Checkout
+  </button>
+
+</div>
+
+<script>
+
+/* CART */
+
+let cart = [];
+
+function addToCart(name, price) {
+
+  cart.push({
+    name: name,
+    price: price
+  });
+
+  updateCart();
+
+  document.getElementById("cart").classList.add("open");
+}
+
+function updateCart() {
+
+  const items = document.getElementById("cartItems");
+  const count = document.getElementById("cartCount");
+  const total = document.getElementById("cartTotal");
+
+  count.textContent = cart.length;
+
+  if(cart.length === 0) {
+    items.innerHTML =
+      '<p style="color:#777">Your cart is empty.</p>';
+
+    total.textContent = "0.00";
+    return;
+  }
+
+  let totalPrice = 0;
+
+  items.innerHTML = "";
+
+  cart.forEach((item,index) => {
+
+    totalPrice += item.price;
+
+    const div = document.createElement("div");
+
+    div.className = "cart-item";
+
+    div.innerHTML = `
+      <div>
+        <strong>${item.name}</strong><br>
+        <small>$${item.price.toFixed(2)}</small>
+      </div>
+
+      <button
+        onclick="removeItem(${index})"
+        style="
+        background:none;
+        border:0;
+        color:#ff3b30;
+        cursor:pointer;">
+        Remove
+      </button>
+    `;
+
+    items.appendChild(div);
+
+  });
+
+  total.textContent = totalPrice.toFixed(2);
+}
+
+function removeItem(index) {
+
+  cart.splice(index,1);
+
+  updateCart();
+}
+
+function openCart() {
+  document.getElementById("cart").classList.add("open");
+}
+
+function closeCart() {
+  document.getElementById("cart").classList.remove("open");
+}
+
+function checkout() {
+
+  if(cart.length === 0) {
+    alert("Your cart is empty.");
+    return;
+  }
+
+  alert(
+    "Checkout is ready to be connected to Stripe, PayPal, or another payment system."
+  );
+}
+
+/* REPAIR FORM */
+
+function submitRepair(event) {
+
+  event.preventDefault();
+
+  const name =
+    document.getElementById("name").value;
+
+  alert(
+    "Thanks " + name +
+    "! Your HICOPK&CO repair request has been submitted."
+  );
+
+  event.target.reset();
+}
+
+/* MOBILE MENU */
+
+const menu = document.querySelector(".menu");
+const navLinks = document.querySelector(".nav-links");
+
+menu.addEventListener("click", () => {
+
+  if(navLinks.style.display === "flex") {
+    navLinks.style.display = "";
+  } else {
+    navLinks.style.display = "flex";
+    navLinks.style.position = "absolute";
+    navLinks.style.top = "75px";
+    navLinks.style.left = "0";
+    navLinks.style.width = "100%";
+    navLinks.style.padding = "25px";
+    navLinks.style.background = "#080808";
+    navLinks.style.flexDirection = "column";
+  }
+
+});
+
+</script>
+
+</body>
+</html>
